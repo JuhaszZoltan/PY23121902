@@ -10,18 +10,17 @@ sides = int(numinput('oldalak száma', 'hány oldalú spirált szeretnél (2-6)?
 
 for x in range(100):
     p.forward(x*4)
-    pos = p.position()
+    ps = p.pos()
     hd = p.heading()
-    print(pos, hd)
+    print(ps, hd)
     for y in range(int(x / 2)):
         p.pendown()
         p.pencolor(cols[y%sides])
         p.forward(2*y)
-        p.right(360 / sides -2)
+        p.right(360/sides - 2)
         p.penup()
-    p.setx(pos[0])
-    p.sety(pos[1])
+    p.goto(ps)
     p.setheading(hd)
-    p.left(360 / sides + 2)
+    p.left(360/sides + 2)
 
 done()
